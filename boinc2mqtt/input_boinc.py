@@ -1,11 +1,14 @@
 import asyncio
 import datetime
 import re
+import os
 
 from .common import InputService
 from .models import WorkUnit
 from .output_mqtt import MqttPublisher
 from .settings import BoincHost
+
+BOINCCMD_PATH = os.getenv("BOINCCMD_PATH", "boinccmd")
 
 
 class Boinc(InputService):
@@ -44,7 +47,7 @@ class Boinc(InputService):
 
     def _get_cmd_base(self) -> list[str]:
         cmd = [
-            "boinccmd",
+            BOINCCMD_PATH,
             "--host", f"{self.host.host}:{self.host.port}"
         ]
         if self.host.password:
