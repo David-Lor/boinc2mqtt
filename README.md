@@ -1,2 +1,3 @@
-# generic-template
-My custom template for generic repositories
+# boinc2mqtt
+
+Send BOINC & FoldingAtHome metrics to MQTT

@@ -1,0 +1,40 @@
+x-common:
+  scrape: &scrape
+    delay: 20s
+  scrape-mobile: &scrape-mobile
+    delay: 1m
+
+
+foldingathome:
+  hosts:
+    - name: My computer
+      host: localhost
+      scrape: *scrape
+    - name: My other computer
+      host: 192.168.0.11
+      scrape: *scrape
+
+
+boinc:
+  hosts:
+    - name: My computer
+      host: localhost
+      scrape: *scrape
+    - name: My other computer
+      host: 192.168.0.11
+      scrape: *scrape
+
+    - name: My phone
+      host: FairPhone4.lan
+      password: "blablabla"
+      scrape: *scrape-mobile
+    - name: My other phone
+      host: Motorola-G7-Plus.lan
+      password: "blebleble"
+      scrape: *scrape-mobile
+
+
+mqtt:
+  host: localhost
+  port: 1883
+  topic: boinc/status
